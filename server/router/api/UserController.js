@@ -31,9 +31,11 @@ router.post('/create', async(req,res) =>{
                 password: password
             });
             res.send('Success')  ;
+         } else {
+
+             console.log(3); 
+            res.send('Failure')  ;
          }
-         console.log(3); 
-        res.send('Failure')  ;
     } catch (error) {
         console.log(error)
         this.error = error.message;
