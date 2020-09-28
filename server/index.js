@@ -11,15 +11,17 @@ app.use(cors());
 const user = require('./router/api/UserController');
 
 app.use('/api/user',user);
+const db = require("./models");
+db.sequelize.sync();
 
-app.get("/", (req, res) => {
-    res.json({ message: "Welcome to booking-DD." });
-  });
+// app.get("/", (req, res) => {
+//     res.json({ message: "Welcome to booking-DD." });
+//   });
   
 
-app.use(function(req, res, next) {
-    next(createError(404));
-});
+// app.use(function(req, res, next) {
+//     next(createError(404));
+// });
 
 
 const port = process.env.PORT || 3000;
